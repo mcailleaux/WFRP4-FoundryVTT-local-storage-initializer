@@ -1,0 +1,69 @@
+image: docker-repository-greenskin.cailleaux.com/greenskin/ci-builder-node14:2.0
+
+variables:
+  GIT_DEPTH: 0
+  GIT_STRATEGY: fetch
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - cp module.json dist
+    - cp src/main.js dist
+    - cd dist
+    - zip wfrp4-local-storage-initializer.zip -r *.* src -x ".*"
+  artifacts:
+    name: wfrp4-local-storage-initializer
+    when: on_success
+    paths:
+      - dist/wfrp4-local-storage-initializer.zip
+  only:
+    - tags
+    - master
+
+build_beta:
+  stage: build
+  script:
+    - cp module-beta.json dist/module.json
+    - cp src/main.js dist
+    - cd dist
+    - zip wfrp4-local-storage-initializer.zip -r *.* src -x ".*"
+  artifacts:
+    name: wfrp4-local-storage-initializer
+    when: on_success
+    paths:
+      - dist/wfrp4-local-storage-initializer.zip
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^(dev)\/.*$/'
+      when: on_success
+
+
+deploy:
+  stage: deploy
+  script:
+    - git config --global user.email "$GIT_USER_EMAIL"
+    - git config --global user.name "$GIT_USER_NAME"
+    - git add -f dist/wfrp4-local-storage-initializer.zip
+    - git commit -m "push artifact on dist branch"
+    - git remote set-url origin $GIT_SSH_URL
+    - git push -f origin HEAD:dist
+  only:
+    - master
+
+deploy_beta:
+  stage: deploy
+  script:
+    - git config --global user.email "$GIT_USER_EMAIL"
+    - git config --global user.name "$GIT_USER_NAME"
+    - git add -f dist/wfrp4-local-storage-initializer.zip
+    - git commit -m "push artifact on dist-beta branch"
+    - git remote set-url origin $GIT_SSH_URL
+    - git push -f origin HEAD:dist-beta
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^(dev)\/.*$/'
+      when: on_success
+
+
