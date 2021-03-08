@@ -11,6 +11,7 @@ stages:
 build:
   stage: build
   script:
+    - mkdir dist
     - cp module.json dist
     - cp src/main.js dist
     - cd dist
@@ -27,6 +28,7 @@ build:
 build_beta:
   stage: build
   script:
+    - mkdir dist
     - cp module-beta.json dist/module.json
     - cp src/main.js dist
     - cd dist
