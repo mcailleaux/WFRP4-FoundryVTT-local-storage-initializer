@@ -28,7 +28,7 @@
     }
   ],
   "url": "https://github.com/mcailleaux/WFRP4-FoundryVTT-local-storage-initializer/tree/dist-beta",
-  "download": "https://github.com/mcailleaux/WFRP4-FoundryVTT-local-storage-initializer/blob/dist-beta/dist/wfrp4-enhanced-drag-n-drop-items.zip?raw=true",
+  "download": "https://github.com/mcailleaux/WFRP4-FoundryVTT-local-storage-initializer/blob/dist-beta/dist/wfrp4-local-storage-initializer.zip?raw=true",
   "manifest": "https://raw.githubusercontent.com/mcailleaux/WFRP4-FoundryVTT-local-storage-initializer/dist-beta/module-beta.json",
   "readme": "https://raw.githubusercontent.com/mcailleaux/WFRP4-FoundryVTT-local-storage-initializer/dist-beta/README.md",
   "changelog": "https://raw.githubusercontent.com/mcailleaux/WFRP4-FoundryVTT-local-storage-initializer/dist-beta/CHANGELOG.md"
