@@ -1,5 +1,9 @@
 ## In development
 
+## 1.0.1
+### New features
+- Force local storage pings.scale to 4
+
 ## 1.0.0
 ### New features
 - Force local storage wfrp4e.weaponLength to true
