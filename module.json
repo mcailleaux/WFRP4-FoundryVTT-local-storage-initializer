@@ -2,7 +2,7 @@
   "name": "wfrp4-local-storage-initializer",
   "title": "[WFRP4] Local Storage Initializer",
   "description": "Init player local storage",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.7.9",
   "author": "Skeroujvapluvit",
